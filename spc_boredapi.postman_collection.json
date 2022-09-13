@@ -1,0 +1,200 @@
+{
+	"info": {
+		"_postman_id": "881d1504-9d53-424a-b55d-6e443a9fd797",
+		"name": "spc_boredapi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19725428"
+	},
+	"item": [
+		{
+			"name": "001_spc_bored_api_task",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Price greater than 0\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    if (jsonData.price > 0) {\r",
+							"        console.log(jsonData)\r",
+							"    }\r",
+							"    else {\r",
+							"        pm.expect.fail(\"If you see this, it means price is 0\")\r",
+							"    }\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://www.boredapi.com/api/activity",
+					"protocol": "http",
+					"host": [
+						"www",
+						"boredapi",
+						"com"
+					],
+					"path": [
+						"api",
+						"activity"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "001_spc_bored_api_task",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://www.boredapi.com/api/activity",
+							"protocol": "http",
+							"host": [
+								"www",
+								"boredapi",
+								"com"
+							],
+							"path": [
+								"api",
+								"activity"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Origin, X-Requested-With, Content-Type, Accept"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "159"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"9f-VDlFIwxv7F2Jn6szLyIwG4cmBh0\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 12 Sep 2022 15:55:19 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"activity\": \"Sit in the dark and listen to your favorite music with no distractions\",\n        \"type\": \"relaxation\",\n        \"participants\": 1,\n        \"price\": 0.8,\n        \"link\": \"\",\n        \"key\": \"9908721\",\n        \"accessibility\": 1\n    },\n    {\n        \"id\": 2,\n        \"activity\": \"Learn the periodic table\",\n        \"type\": \"education\",\n        \"participants\": 1,\n        \"price\": 0,\n        \"link\": \"https://en.wikipedia.org/wiki/Periodic_table\",\n        \"key\": \"3621244\",\n        \"accessibility\": 0.6\n    },\n    {\n        \"id\": 3,\n        \"activity\": \"Hold a yard sale\",\n        \"type\": \"social\",\n        \"participants\": 1,\n        \"price\": 0,\n        \"link\": \"\",\n        \"key\": \"1432113\",\n        \"accessibility\": 0.1\n    },\n    {\n        \"id\": 4,\n        \"activity\": \"Clean out your refrigerator\",\n        \"type\": \"busywork\",\n        \"participants\": 1,\n        \"price\": 0,\n        \"link\": \"\",\n        \"key\": \"9324336\",\n        \"accessibility\": 0\n    },\n    {\n        \"id\": 5,\n        \"type\": \"music\",\n        \"activity\": \"Listen to a new music genre\",\n        \"participants\": 1,\n        \"price\": 0,\n        \"link\": \"\",\n        \"key\": \"4708863\",\n        \"accessibility\": 0\n    },\n    {\n        \"id\": 6,\n        \"activity\": \"Write a letter\",\n        \"type\": \"paper\",\n        \"participants\": 1,\n        \"price\": 0,\n        \"link\": \"\",\n        \"key\": \"5188388\",\n        \"accessibility\": 0\n    },\n    {\n        \"id\": 7,\n        \"activity\": \"Write a song\",\n        \"type\": \"music\",\n        \"participants\": 1,\n        \"price\": 0,\n        \"link\": \"\",\n        \"key\": \"5188388\",\n        \"accessibility\": 0\n    },\n    {\n        \"id\": 8,\n        \"activity\": \"Take your dog on a walk\",\n        \"type\": \"relaxation\",\n        \"participants\": 1,\n        \"price\": 0,\n        \"link\": \"\",\n        \"key\": \"9318514\",\n        \"accessibility\": 0.2\n    },\n    {\n        \"id\": 9,\n        \"activity\": \"Make a scrapbook with pictures of your favorite memories\",\n        \"type\": \"diy\",\n        \"participants\": 1,\n        \"price\": 0.1,\n        \"link\": \"\",\n        \"key\": \"5554174\",\n        \"accessibility\": 0.1\n    },\n    {\n        \"id\": 10,\n        \"activity\": \"Make homemade ice cream\",\n        \"type\": \"cooking\",\n        \"participants\": 1,\n        \"price\": 0.2,\n        \"link\": \"\",\n        \"key\": \"3818400\",\n        \"accessibility\": 0.2\n    },\n    {\n        \"id\": 11,\n        \"activity\": \"Give your pet ten minutes of focused attention\",\n        \"type\": \"relaxation\",\n        \"participants\": 1,\n        \"price\": 0,\n        \"link\": \"\",\n        \"key\": \"9937387\",\n        \"accessibility\": 0\n    },\n    {\n        \"id\": 12,\n        \"activity\": \"Plan a trip to another country\",\n        \"type\": \"recreational\",\n        \"participants\": 1,\n        \"price\": 0,\n        \"link\": \"\",\n        \"key\": \"5554727\",\n        \"accessibility\": 0\n    },\n    {\n        \"id\": 13,\n        \"activity\": \"Find a DIY to do\",\n        \"type\": \"diy\",\n        \"participants\": 1,\n        \"price\": 0.4,\n        \"link\": \"\",\n        \"key\": \"4981819\",\n        \"accessibility\": 0.3\n    },\n    {\n        \"id\": 14,\n        \"activity\": \"Find a DIY to do\",\n        \"type\": \"diy\",\n        \"participants\": 2,\n        \"price\": 0.5,\n        \"link\": \"\",\n        \"key\": \"4981829\",\n        \"accessibility\": 0.3\n    },\n    {\n        \"id\": 15,\n        \"activity\": \"Bake pastries for you and your neighbor\",\n        \"type\": \"cooking\",\n        \"participants\": 1,\n        \"price\": 0.4,\n        \"link\": \"\",\n        \"key\": \"8125168\",\n        \"accessibility\": 0.3\n    },\n    {\n        \"id\": 16,\n        \"activity\": \"Cook something together with someone\",\n        \"type\": \"cooking\",\n        \"participants\": 2,\n        \"price\": 0.3,\n        \"link\": \"\",\n        \"key\": \"1799120\",\n        \"accessibility\": 0.8\n    },\n    {\n        \"id\": 17,\n        \"activity\": \"Pick up litter around your favorite park\",\n        \"type\": \"charity\",\n        \"participants\": 1,\n        \"price\": 0.1,\n        \"link\": \"\",\n        \"key\": \"4894697\",\n        \"accessibility\": 0.05\n    },\n    {\n        \"id\": 18,\n        \"activity\": \"Do something nice for someone you care about\",\n        \"type\": \"social\",\n        \"participants\": 1,\n        \"price\": 0,\n        \"link\": \"\",\n        \"key\": \"8321894\",\n        \"accessibility\": 0.1\n    },\n    {\n        \"id\": 19,\n        \"activity\": \"Learn Javascript\",\n        \"type\": \"education\",\n        \"participants\": 1,\n        \"price\": 0,\n        \"link\": \"\",\n        \"key\": \"3469378\",\n        \"accessibility\": 0.9\n    },\n    {\n        \"id\": 20,\n        \"activity\": \"Clean out your refrigerator\",\n        \"type\": \"busywork\",\n        \"participants\": 1,\n        \"price\": 0,\n        \"link\": \"\",\n        \"key\": \"9324336\",\n        \"accessibility\": 0\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Mock_request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Price greater than 0 and sorted via accessibilitu asc\", function () {\r",
+							"    const myResponse = pm.response.json();\r",
+							"    let filterPrice = myResponse.filter(price => price.price > 0);\r",
+							"\r",
+							"    let sortedByAccessibilityAsc = filterPrice.sort((a1, a2) =>\r",
+							"        (a1.accessibility > a2.accessibility) ? 1 :\r",
+							"            (a1.accessibility < a2.accessibility ? -1 : 0))\r",
+							"\r",
+							"\r",
+							"    //Here we will log the final result of our function | \r",
+							"    // parameters, that have price > 0 , will be sorted with accessibility ascending \r",
+							"    console.log(sortedByAccessibilityAsc)\r",
+							"\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://0f1cc4f5-be92-48cb-8033-0a701ed10426.mock.pstmn.io/api/activity",
+					"protocol": "https",
+					"host": [
+						"0f1cc4f5-be92-48cb-8033-0a701ed10426",
+						"mock",
+						"pstmn",
+						"io"
+					],
+					"path": [
+						"api",
+						"activity"
+					],
+					"query": [
+						{
+							"key": "price",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
