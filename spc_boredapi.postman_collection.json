@@ -22,16 +22,9 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Price greater than 0\", function () {\r",
-							"    var jsonData = pm.response.json();\r",
-							"    if (jsonData.price > 0) {\r",
-							"        console.log(jsonData)\r",
-							"    }\r",
-							"    else {\r",
-							"        pm.expect.fail(\"If you see this, it means price is 0\")\r",
-							"    }\r",
-							"});\r",
-							""
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
 						],
 						"type": "text/javascript"
 					}
