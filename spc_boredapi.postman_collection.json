@@ -165,9 +165,13 @@
 					}
 				],
 				"url": {
-					"raw": "{{url}}/api/activity",
+					"raw": "https://0f1cc4f5-be92-48cb-8033-0a701ed10426.mock.pstmn.io/api/activity",
+					"protocol": "https",
 					"host": [
-						"{{url}}"
+						"0f1cc4f5-be92-48cb-8033-0a701ed10426",
+						"mock",
+						"pstmn",
+						"io"
 					],
 					"path": [
 						"api",
