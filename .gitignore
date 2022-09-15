@@ -110,6 +110,8 @@ ENV/
 env.bak/
 venv.bak/
 .spcenv
+.idea
+spc_task
 
 # Spyder project settings
 .spyderproject
