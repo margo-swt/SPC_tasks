@@ -6,6 +6,8 @@ mock server task can be found on separate branch , in case you have faced issues
 
 The goal of this test is to log in to the space bank , update passcode and check it
 
+#### run requirements.txt before test_execution
+
 > ###⚠️Notice 
 > For user you should provide a test user credentials and place them in terminal  , you will see a couple of methods like this. They were created in order to avoid static datas in code, because OTP interactions
 
