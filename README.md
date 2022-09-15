@@ -2,7 +2,7 @@
 
 mock server task can be found on separate branch , in case you have faced issues with file
 
-###appium automation task
+### appium automation task
 
 The goal of this test is to log in to the space bank , update passcode and check it
 
