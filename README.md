@@ -2,14 +2,15 @@
 
 mock server task can be found on separate branch , in case you have faced issues with file
 
-###appium automation task
+### appium automation task
 
 The goal of this test is to log in to the space bank , update passcode and check it
 
 #### run requirements.txt before test_execution
 
-> ###⚠️Notice 
-> For user you should provide a test user credentials and place them in terminal  , you will see a couple of methods like this. They were created in order to avoid static datas in code, because OTP interactions
+### Notice 
+#### python version 3.10.2
+> For user you should provide a test user credentials and place them in terminal  , you will see a couple of methods like this. They were created in order to avoid static datas in code, because of OTP interactions
 
 ```Python
     def test_member_mobile(self):

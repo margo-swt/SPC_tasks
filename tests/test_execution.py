@@ -1,5 +1,6 @@
 import allure
 from pytest_assume.plugin import assume
+from pytest_reportportal.plugin import log
 
 from Pages.intro_page import ChooseUserThatExists
 from Pages.mobile_input_page import ExistingTestUserMobilePage
@@ -39,7 +40,7 @@ class TestSpaceApp:
     @allure.title("Intro page - choose [Already a member]")
     def test_intro_page(self):
         user_exists_spc = test_intro_page_spc.choose_user_exists()
-        with assume: assert user_exists_spc.is_clickable() == True
+        with assume: assert user_exists_spc.is_displayed()
         user_exists_spc.click()
 
     @allure.title("Provide test user mobile number please")
@@ -58,8 +59,8 @@ class TestSpaceApp:
         test_password_spc.send_keys(test_password)
 
     @allure.title("OTP should have been sent on provided number | if not, re-sent functionality will be activated")
-    @pytest.mark.skipif(test_user_otp_spc.received_otp_after_auth().is_displayed() == False, reason="OTP is not always "
-                                                                                                    "sent")
+    # @pytest.mark.skipif(test_user_otp_spc.received_otp_after_auth().is_displayed() == False, reason="OTP is not
+    # always " "sent")
     def test_otp_received(self):
         test_otp_spc = test_user_otp_spc.received_otp_after_auth()
         resend_otp_spc = test_user_otp_spc.resend_otp()
@@ -77,12 +78,20 @@ class TestSpaceApp:
 
     @allure.title("Alerts should be canceled | fingerprint")
     def test_catch_alerts_fingerprint(self):
-        catch_alerts_fp_spc = test_alerts_spc.alert_messages()
-        if catch_alerts_fp_spc.is_enabled():
-            cancel_alert_first_proposal = test_alerts_spc.alert_messages_deny()
-            cancel_alert_first_proposal.click()
-        else:
-            pass
+        try:
+            self.test_otp_received()
+            try:
+                log.info("OTP sent request is duplicated lets try to catch it")
+            except:
+                if self.test_otp_received():
+                    raise Exception("Something went wrong ! ")
+        finally:
+            catch_alerts_fp_spc = test_alerts_spc.alert_messages()
+            if catch_alerts_fp_spc.is_enabled():
+                cancel_alert_first_proposal = test_alerts_spc.alert_messages_deny()
+                cancel_alert_first_proposal.click()
+            else:
+                pass
 
     @allure.title("Alerts should be canceled | after fingerprint | info")
     def test_catch_alerts_info(self):
@@ -96,8 +105,10 @@ class TestSpaceApp:
     @allure.title("Steps to change passcode | select profile icon")
     def test_go_to_profile_icon(self):
         test_profile_spc = test_profile_icon_spc.go_to_user_profile()
-        with assume: assert test_profile_spc.is_displayed()
-        test_profile_spc.click()
+        if test_profile_spc.is_displayed():
+            test_profile_spc.click()
+        else:
+            test_profile_spc.click()
 
     @allure.title("Go to security section")
     def test_security_page(self):
@@ -150,8 +161,9 @@ class TestSpaceApp:
         test_params_close_spc = test_close_cards_spc.card_act_close()
         with assume: assert test_params_close_spc.is_displayed()
         test_params_close_spc.click()
+
         self.test_go_to_profile_icon()
-        with assume: assert test_params_spc.log_out_functionalty.is_displayed()
+        with assume: assert test_params_spc.log_out_functionalty.is_enabled()
         test_params_spc.log_out_functionalty.click()
 
     @allure.title("Authorize with new Pwd")
@@ -160,3 +172,5 @@ class TestSpaceApp:
         if test_new_authorization_spc.is_displayed():
             test_password = str(input('⚠️Repeat your new password: '))
             test_new_authorization_spc.send_keys(test_password)
+
+    # TODO review locators - another otp

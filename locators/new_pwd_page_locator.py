@@ -2,6 +2,7 @@ from appium.webdriver.common.appiumby import AppiumBy
 
 
 class NewPassword:
+    # TODO review locators
     NEW_CODE = (AppiumBy.ID, "ge.space.app:id/passwordBaseFragmentPin")
     REPEAT_CODE = (AppiumBy.ID, "00000000-0000-024c-ffff-ffff00000473")
 

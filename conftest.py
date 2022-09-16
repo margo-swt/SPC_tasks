@@ -11,7 +11,7 @@ class RemoteDriverCaps:
         "ensureWebviewsHavePages": True,
         "nativeWebScreenshot": True,
         "appWaitDuration": 60000,
-        "newCommandTimeout": 30000,
+        "newCommandTimeout": 36000,
         "autoGrantPermissions": True,
         "connectHardwareKeyboard": True
 

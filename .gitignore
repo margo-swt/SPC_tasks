@@ -112,6 +112,7 @@ venv.bak/
 .spcenv
 .idea
 spc_task
+.python-client
 
 # Spyder project settings
 .spyderproject
