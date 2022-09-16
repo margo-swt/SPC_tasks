@@ -59,8 +59,6 @@ class TestSpaceApp:
         test_password_spc.send_keys(test_password)
 
     @allure.title("OTP should have been sent on provided number | if not, re-sent functionality will be activated")
-    # @pytest.mark.skipif(test_user_otp_spc.received_otp_after_auth().is_displayed() == False, reason="OTP is not
-    # always " "sent")
     def test_otp_received(self):
         test_otp_spc = test_user_otp_spc.received_otp_after_auth()
         resend_otp_spc = test_user_otp_spc.resend_otp()
